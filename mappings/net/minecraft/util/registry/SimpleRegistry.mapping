@@ -10,5 +10,6 @@ CLASS net/minecraft/class_1943 net/minecraft/util/registry/SimpleRegistry
 	METHOD method_12580 getRawId (Ljava/lang/Object;)I
 	METHOD method_7326 getByRawId (I)Ljava/lang/Object;
 		ARG 1 index
+	METHOD method_7327 register (ILjava/lang/String;Ljava/lang/Object;)V
 	METHOD method_7330 getIndex (Ljava/lang/Object;)I
 		ARG 1 object

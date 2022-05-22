@@ -15,7 +15,7 @@ CLASS net/minecraft/class_1155 net/minecraft/world/WorldEventListener
 		ARG 11 velocityY
 		ARG 13 velocityZ
 		ARG 15 args
-	METHOD method_3746 (Ljava/lang/String;DDDDDD)V
+	METHOD method_3746 spawnParticle (Ljava/lang/String;DDDDDD)V
 		ARG 1 particleName
 		ARG 2 x
 		ARG 4 y

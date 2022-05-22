@@ -9,6 +9,7 @@ CLASS net/minecraft/class_550 net/minecraft/client/render/entity/EntityRenderDis
 	FIELD field_2100 world Lnet/minecraft/class_1150;
 	FIELD field_2102 yaw F
 	FIELD field_2103 pitch F
+	FIELD field_2104 gameOptions Lnet/minecraft/class_347;
 	FIELD field_2108 renderers Ljava/util/Map;
 	FIELD field_2109 textRenderer Lnet/minecraft/class_370;
 	FIELD field_6481 textureManager Lnet/minecraft/class_1532;
