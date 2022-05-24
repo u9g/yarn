@@ -44,7 +44,6 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
       - run: python ./prepare_yarn.py $MC_VERSION
-      - uses: gradle/wrapper-validation-action@v1
       - run: ./gradlew build javadocJar checkMappings mapNamedJar --stacktrace
       - run: ./gradlew publishToMavenLocal
       - run: cd test-mod && ./gradlew build
