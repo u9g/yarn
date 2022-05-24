@@ -81,6 +81,5 @@ jobs:
           java-version: '17'
       - run: python ./prepare_yarn.py $MC_VERSION
       - uses: gradle/wrapper-validation-action@v1
-      - run: ./gradlew publish --stacktrace
-        env:
-          MAVEN_PUBLISH_TOKEN: ${{ secrets.MAVEN_PUBLISH_TOKEN }}
+      - run: ./gradlew publishToMavenLocal --stacktrace
+      - run: ls -R /home
