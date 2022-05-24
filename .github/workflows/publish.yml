@@ -51,6 +51,7 @@ jobs:
       - run: python ./prepare_yarn.py $MC_VERSION
       - run: ./gradlew publishToMavenLocal --stacktrace
       - run: cd test-mod && ./gradlew build
+      - run: ls -R /home
       
   publish:
     needs: build
@@ -86,3 +87,4 @@ jobs:
       - run: ./gradlew publish --stacktrace
         env:
           MAVEN_PUBLISH_TOKEN: ${{ secrets.MAVEN_PUBLISH_TOKEN }}
+      - run: ls -R /home
