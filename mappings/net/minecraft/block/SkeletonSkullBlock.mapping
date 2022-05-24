@@ -1,3 +1,0 @@
-CLASS net/minecraft/class_1305 net/minecraft/block/SkeletonSkullBlock
-	FIELD field_9666 FACING Lnet/minecraft/class_2244;
-	FIELD field_9667 NO_DROP Lnet/minecraft/class_2243;

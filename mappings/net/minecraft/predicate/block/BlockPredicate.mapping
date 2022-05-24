@@ -1,3 +1,0 @@
-CLASS net/minecraft/class_2240 net/minecraft/predicate/block/BlockPredicate
-	METHOD method_9062 make (Lnet/minecraft/class_197;)Lnet/minecraft/class_2240;
-		ARG 0 block

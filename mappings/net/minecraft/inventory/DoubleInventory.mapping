@@ -1,2 +1,0 @@
-CLASS net/minecraft/class_848 net/minecraft/inventory/DoubleInventory
-	METHOD method_4422 isPart (Lnet/minecraft/class_849;)Z

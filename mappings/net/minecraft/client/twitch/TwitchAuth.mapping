@@ -1,8 +1,0 @@
-CLASS net/minecraft/class_1933 net/minecraft/client/twitch/TwitchAuth
-	FIELD field_8341 streamMarker Lorg/apache/logging/log4j/Marker;
-	FIELD field_8342 LOGGER Lorg/apache/logging/log4j/Logger;
-	FIELD field_8344 twitch Lnet/minecraft/class_1923;
-	FIELD field_8345 client Lnet/minecraft/class_1600;
-	FIELD field_8346 twitchText Lnet/minecraft/class_1982;
-	FIELD field_8347 twitchChat Ljava/util/Map;
-	FIELD field_8348 framebuffer Lnet/minecraft/class_1862;

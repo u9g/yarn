@@ -1,7 +1,0 @@
-CLASS net/minecraft/class_1095 net/minecraft/item/StoneSlabItem
-	FIELD field_4399 singleSlab Lnet/minecraft/class_143;
-	FIELD field_4400 doubleSlab Lnet/minecraft/class_143;
-	METHOD <init> (Lnet/minecraft/class_197;Lnet/minecraft/class_143;Lnet/minecraft/class_143;)V
-		ARG 1 slabBlock
-		ARG 2 singleSlab
-		ARG 3 doubleSlab

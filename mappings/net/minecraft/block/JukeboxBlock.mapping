@@ -1,3 +1,0 @@
-CLASS net/minecraft/class_175 net/minecraft/block/JukeboxBlock
-	FIELD field_9499 HAS_RECORD Lnet/minecraft/class_2243;
-	CLASS class_176 JukeboxBlockEntity

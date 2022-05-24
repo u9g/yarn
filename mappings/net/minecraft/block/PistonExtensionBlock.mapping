@@ -1,3 +1,0 @@
-CLASS net/minecraft/class_229 net/minecraft/block/PistonExtensionBlock
-	FIELD field_9875 FACING Lnet/minecraft/class_2244;
-	FIELD field_9876 TYPE Lnet/minecraft/class_2245;

@@ -1,5 +1,0 @@
-CLASS net/minecraft/class_196 net/minecraft/block/PaneBlock
-	FIELD field_9743 EAST Lnet/minecraft/class_2243;
-	FIELD field_9744 SOUTH Lnet/minecraft/class_2243;
-	FIELD field_9745 WEST Lnet/minecraft/class_2243;
-	FIELD field_9746 NORTH Lnet/minecraft/class_2243;

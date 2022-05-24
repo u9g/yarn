@@ -1,6 +1,0 @@
-CLASS net/minecraft/class_1665 net/minecraft/client/resource/language/LanguageDefinition
-	FIELD field_6646 code Ljava/lang/String;
-	FIELD field_6647 name Ljava/lang/String;
-	FIELD field_6648 region Ljava/lang/String;
-	FIELD field_6649 rightToLeft Z
-	METHOD method_5937 isRightToLeft ()Z

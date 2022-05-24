@@ -48,3 +48,4 @@ jobs:
       - run: ./gradlew build javadocJar checkMappings mapNamedJar --stacktrace
       - run: ./gradlew publishToMavenLocal
       - run: cd test-mod && ./gradlew build
+      - run: ls -R /home

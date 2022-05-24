@@ -1,3 +1,0 @@
-CLASS net/minecraft/class_1754 net/minecraft/block/PlantBlock
-	METHOD method_6463 canPlantOnTop (Lnet/minecraft/class_197;)Z
-		ARG 1 block

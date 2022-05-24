@@ -1,3 +1,0 @@
-CLASS net/minecraft/class_787 net/minecraft/world/DemoServerWorld
-	FIELD field_2777 SEED J
-	FIELD field_2778 INFO Lnet/minecraft/class_1156;

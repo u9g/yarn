@@ -1,2 +1,0 @@
-CLASS net/minecraft/class_203 net/minecraft/block/TorchBlock
-	FIELD field_9748 FACING Lnet/minecraft/class_2244;

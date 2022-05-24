@@ -1,2 +1,0 @@
-CLASS net/minecraft/class_149 net/minecraft/block/LadderBlock
-	FIELD field_9500 FACING Lnet/minecraft/class_2244;

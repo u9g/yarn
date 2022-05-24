@@ -1,4 +1,0 @@
-CLASS net/minecraft/class_1233 net/minecraft/world/gen/feature/NetherrackFeature
-	FIELD field_7526 block Lnet/minecraft/class_197;
-	METHOD <init> (Lnet/minecraft/class_197;Z)V
-		ARG 1 block

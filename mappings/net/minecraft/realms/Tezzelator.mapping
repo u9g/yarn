@@ -1,3 +1,0 @@
-CLASS net/minecraft/realms/Tezzelator
-	FIELD field_8913 tesselator Lnet/minecraft/class_533;
-	FIELD instance INSTANCE Lnet/minecraft/realms/Tezzelator;

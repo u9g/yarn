@@ -1,2 +1,0 @@
-CLASS net/minecraft/class_1238 net/minecraft/world/gen/feature/DungeonFeature
-	FIELD field_10159 LOGGER Lorg/apache/logging/log4j/Logger;

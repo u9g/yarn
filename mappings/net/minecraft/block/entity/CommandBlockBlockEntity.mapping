@@ -1,2 +1,0 @@
-CLASS net/minecraft/class_1309 net/minecraft/block/entity/CommandBlockBlockEntity
-	METHOD method_6518 getCommandExecutor ()Lnet/minecraft/class_1740;

@@ -1,3 +1,0 @@
-CLASS net/minecraft/class_1777 net/minecraft/world/gen/feature/DarkOakTreeFeature
-	FIELD field_10166 LOG Lnet/minecraft/class_2232;
-	FIELD field_10167 LEAVES Lnet/minecraft/class_2232;
