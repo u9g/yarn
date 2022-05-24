@@ -1,5 +1,9 @@
 name: Build and Publish
-on: [push]
+on:
+  push:
+    branches:
+      - "**"
+      - "!autopublish"
 jobs:
   build:
     runs-on: ubuntu-latest
