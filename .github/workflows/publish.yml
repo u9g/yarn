@@ -1,9 +1,8 @@
 name: Build and Publish
 on:
   push:
-    branches:
-      - "**"
-      - "!autopublish"
+    branches-ignore:
+      - "autopublish"
 jobs:
   build:
     runs-on: ubuntu-latest
