@@ -84,5 +84,14 @@ jobs:
         with:
           name: 'net_fabricmc_yarn_${{ matrix.mc_version }}+build.local_yarn-${{ matrix.mc_version }}+build.local.pom'
           path: '/home/runner/.m2/repository/net/fabricmc/yarn/${{ matrix.mc_version }}+build.local/yarn-${{ matrix.mc_version }}+build.local.pom'
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "Development Build"
+          files: |
+            /home/runner/.m2/repository/net/fabricmc/yarn/maven-metadata-local.xml
+            /home/runner/.m2/repository/net/fabricmc/yarn/${{ matrix.mc_version }}+build.local/*.*
 #     - run: mvn help:evaluate -Dexpression=settings.localRepository
       - run: ls -R /home/runner/.m2/repository
