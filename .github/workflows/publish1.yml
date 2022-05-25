@@ -84,10 +84,16 @@ jobs:
         with:
           name: 'net_fabricmc_yarn_${{ matrix.mc_version }}+build.local_yarn-${{ matrix.mc_version }}+build.local.pom'
           path: '/home/runner/.m2/repository/net/fabricmc/yarn/${{ matrix.mc_version }}+build.local/yarn-${{ matrix.mc_version }}+build.local.pom'
-      - uses: rickstaa/action-create-tag@v1
+      - name: Create tag
+        uses: actions/github-script@v5
         with:
-          tag: "latest"
-          message: "Latest release"
+          script: |
+            github.rest.git.createRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: 'refs/tags/latest',
+              sha: context.sha
+            })
       - uses: ncipollo/release-action@v1
         with:
           artifacts: "/home/runner/.m2/repository/net/fabricmc/yarn/maven-metadata-local.xml,/home/runner/.m2/repository/net/fabricmc/yarn/${{ matrix.mc_version }}+build.local/*.*"
