@@ -87,11 +87,11 @@ jobs:
       - uses: actions/checkout@v3
         with:
           ref: ${{ github.event.inputs.branch_name }}
-          path: work
+          path: 'work'
       - uses: actions/checkout@v3
         with:
-          ref: release
-          path: temprelease
+          ref: 'latest'
+          path: 'temprelease'
       - run: rm -rf work/.git && mv temprelease/.git work
       - name: Commit
         run: |
