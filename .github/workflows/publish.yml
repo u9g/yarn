@@ -1,8 +1,10 @@
 name: Build and Publish
 on:
-  push:
-    branches-ignore:
-      - "autopublish"
+  workflow_dispatch:
+    inputs:
+      name:
+        branch_name: 'branch to publish from'
+        required: true
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -83,7 +85,5 @@ jobs:
           distribution: 'temurin' # See 'Supported distributions' for available options
           java-version: '17'
       - run: python ./prepare_yarn.py $MC_VERSION
-      - run: ./gradlew publish --stacktrace
-        env:
-          MAVEN_PUBLISH_TOKEN: ${{ secrets.MAVEN_PUBLISH_TOKEN }}
-      - run: ls -R /home
+      - run: ./gradlew publishToMavenLocal --stacktrace
+      - run: ls -R /
