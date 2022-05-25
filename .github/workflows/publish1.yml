@@ -2,14 +2,14 @@ name: Build and Publish to local
 on:
   workflow_dispatch:
     inputs:
-      name:
-        branch_name: 'branch to publish from'
+      branch_name:
+        description: 'branch to publish from'
         required: true
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
-      matrix: 
+      matrix:
         mc_version: [
             '1.3','1.3.1','1.3.2',
             
