@@ -56,5 +56,5 @@ jobs:
           java-version: '17'
       - run: python ./prepare_yarn.py $MC_VERSION
       - run: ./gradlew publishToMavenLocal --stacktrace
-      - run: mvn help:evaluate -Dexpression=settings.localRepository
-      - run: ls -R /
+#       - run: mvn help:evaluate -Dexpression=settings.localRepository
+      - run: ls -R /home/runner/.m2/repository
