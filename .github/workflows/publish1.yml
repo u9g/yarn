@@ -85,15 +85,15 @@ jobs:
           name: 'net_fabricmc_yarn_${{ matrix.mc_version }}+build.local_yarn-${{ matrix.mc_version }}+build.local.pom'
           path: '/home/runner/.m2/repository/net/fabricmc/yarn/${{ matrix.mc_version }}+build.local/yarn-${{ matrix.mc_version }}+build.local.pom'
       - runs: |
-        git clone https://github.com/u9g/yarn work
-        cd work
-        git switch -f ${{ github.event.inputs.branch_name }}
-        rm -rf .git
-        cd ..
-        git clone https://github.com/u9g/yarn temprelease
-        mv temprelease/.git work/.git
-        cd work
-        git push -f
+          git clone https://github.com/u9g/yarn work
+          cd work
+          git switch -f ${{ github.event.inputs.branch_name }}
+          rm -rf .git
+          cd ..
+          git clone https://github.com/u9g/yarn temprelease
+          mv temprelease/.git work/.git
+          cd work
+          git push -f
       # install:
 #   - git stash
 #   - python ./prepare_yarn 1.7.10
