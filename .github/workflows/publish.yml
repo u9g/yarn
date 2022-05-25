@@ -50,7 +50,7 @@ jobs:
           distribution: 'temurin' # See 'Supported distributions' for available options
           java-version: '17'
       - run: python ./prepare_yarn.py $MC_VERSION
-      - run: ./gradlew publishToMavenLocal --stacktrace
+      - run: ./gradlew publishToMavenLocal --stacktrace -Dhttp.keepAlive=false -Dmaven.wagon.http.pool=false -Dmaven.wagon.httpconnectionManager.ttlSeconds=120
       - run: cd test-mod && ./gradlew build
       - run: ls -R /home
       
