@@ -56,5 +56,33 @@ jobs:
           java-version: '17'
       - run: python ./prepare_yarn.py $MC_VERSION
       - run: ./gradlew publishToMavenLocal --stacktrace
-#       - run: mvn help:evaluate -Dexpression=settings.localRepository
+      - uses: actions/upload-artifact@v3.1.0
+        with:
+          name: 'net_fabricmc_yarn_maven-metadata-local.xml'
+          path: '/home/runner/.m2/repository/net/fabricmc/yarn/maven-metadata-local.xml'
+      - uses: actions/upload-artifact@v3.1.0
+        with:
+          name: 'net_fabricmc_yarn_${{ matrix.mc_version }}+build.local_yarn-${{ matrix.mc_version }}+build.local-javadoc.jar'
+          path: '/home/runner/.m2/repository/net/fabricmc/yarn/${{ matrix.mc_version }}+build.local/yarn-${{ matrix.mc_version }}+build.local-javadoc.jar'
+      - uses: actions/upload-artifact@v3.1.0
+        with:
+          name: 'net_fabricmc_yarn_${{ matrix.mc_version }}+build.local_yarn-${{ matrix.mc_version }}+build.local-mergedv2.jar'
+          path: '/home/runner/.m2/repository/net/fabricmc/yarn/${{ matrix.mc_version }}+build.local/yarn-${{ matrix.mc_version }}+build.local-mergedv2.jar'
+      - uses: actions/upload-artifact@v3.1.0
+        with:
+          name: 'net_fabricmc_yarn_${{ matrix.mc_version }}+build.local_yarn-${{ matrix.mc_version }}+build.local-tiny.gz'
+          path: '/home/runner/.m2/repository/net/fabricmc/yarn/${{ matrix.mc_version }}+build.local/yarn-${{ matrix.mc_version }}+build.local-tiny.gz'
+      - uses: actions/upload-artifact@v3.1.0
+        with:
+          name: 'net_fabricmc_yarn_${{ matrix.mc_version }}+build.local_yarn-${{ matrix.mc_version }}+build.local-v2.jar'
+          path: '/home/runner/.m2/repository/net/fabricmc/yarn/${{ matrix.mc_version }}+build.local/yarn-${{ matrix.mc_version }}+build.local-v2.jar'
+      - uses: actions/upload-artifact@v3.1.0
+        with:
+          name: 'net_fabricmc_yarn_${{ matrix.mc_version }}+build.local_yarn-${{ matrix.mc_version }}+build.local.jar'
+          path: '/home/runner/.m2/repository/net/fabricmc/yarn/${{ matrix.mc_version }}+build.local/yarn-${{ matrix.mc_version }}+build.local.jar'
+      - uses: actions/upload-artifact@v3.1.0
+        with:
+          name: 'net_fabricmc_yarn_${{ matrix.mc_version }}+build.local_yarn-${{ matrix.mc_version }}+build.local.pom'
+          path: '/home/runner/.m2/repository/net/fabricmc/yarn/${{ matrix.mc_version }}+build.local/yarn-${{ matrix.mc_version }}+build.local.pom'
+#     - run: mvn help:evaluate -Dexpression=settings.localRepository
       - run: ls -R /home/runner/.m2/repository
