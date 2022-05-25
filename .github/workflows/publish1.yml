@@ -88,15 +88,10 @@ jobs:
         with:
           tag: "latest"
           message: "Latest release"
-      - uses: "marvinpinto/action-automatic-releases@latest"
+      - uses: ncipollo/release-action@v1
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "latest"
-          prerelease: true
-          owner: u9g
-          title: "Development Build"
-          files: |
-            /home/runner/.m2/repository/net/fabricmc/yarn/maven-metadata-local.xml
-            /home/runner/.m2/repository/net/fabricmc/yarn/${{ matrix.mc_version }}+build.local/*.*
+          artifacts: "/home/runner/.m2/repository/net/fabricmc/yarn/maven-metadata-local.xml,/home/runner/.m2/repository/net/fabricmc/yarn/${{ matrix.mc_version }}+build.local/*.*"
+          body: "The latest release"
+          token: ${{ secrets.GITHUB_TOKEN }}
 #     - run: mvn help:evaluate -Dexpression=settings.localRepository
       - run: ls -R /home/runner/.m2/repository
