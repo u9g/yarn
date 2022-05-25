@@ -94,10 +94,5 @@ jobs:
               ref: 'refs/tags/latest',
               sha: context.sha
             })
-      - uses: ncipollo/release-action@v1
-        with:
-          artifacts: "/home/runner/.m2/repository/net/fabricmc/yarn/maven-metadata-local.xml,/home/runner/.m2/repository/net/fabricmc/yarn/${{ matrix.mc_version }}+build.local/*.*"
-          body: "The latest release"
-          token: ${{ secrets.GITHUB_TOKEN }}
 #     - run: mvn help:evaluate -Dexpression=settings.localRepository
       - run: ls -R /home/runner/.m2/repository
