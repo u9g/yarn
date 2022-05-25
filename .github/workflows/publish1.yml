@@ -84,15 +84,40 @@ jobs:
         with:
           name: 'net_fabricmc_yarn_${{ matrix.mc_version }}+build.local_yarn-${{ matrix.mc_version }}+build.local.pom'
           path: '/home/runner/.m2/repository/net/fabricmc/yarn/${{ matrix.mc_version }}+build.local/yarn-${{ matrix.mc_version }}+build.local.pom'
-      - name: Create tag
-        uses: actions/github-script@v5
-        with:
-          script: |
-            github.rest.git.createRef({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              ref: 'refs/tags/latest',
-              sha: context.sha
-            })
+      - runs: |
+        git clone https://github.com/u9g/yarn work
+        cd work
+        git switch -f ${{ github.event.inputs.branch_name }}
+        rm -rf .git
+        cd ..
+        git clone https://github.com/u9g/yarn temprelease
+        mv temprelease/.git work/.git
+        cd work
+        git push -f
+      # install:
+#   - git stash
+#   - python ./prepare_yarn 1.7.10
+#   - 'MC_VERSION=1.7.10 ./gradlew publishToMavenLocal --stacktrace'
+#   - git stash
+#   - python ./prepare_yarn 1.8
+#   - 'MC_VERSION=1.8 ./gradlew publishToMavenLocal --stacktrace'
+#   - git stash
+#   - python ./prepare_yarn 1.8.9
+#   - 'MC_VERSION=1.8.9 ./gradlew publishToMavenLocal --stacktrace'
+#   - git stash
+#   - python ./prepare_yarn 1.9.4
+#   - 'MC_VERSION=1.9.4 ./gradlew publishToMavenLocal --stacktrace'
+#   - git stash
+#   - python ./prepare_yarn 1.10.2
+#   - 'MC_VERSION=1.10.2 ./gradlew publishToMavenLocal --stacktrace'
+#   - git stash
+#   - python ./prepare_yarn 1.11.2
+#   - 'MC_VERSION=1.11.2 ./gradlew publishToMavenLocal --stacktrace'
+#   - git stash
+#   - python ./prepare_yarn 1.12.2
+#   - 'MC_VERSION=1.12.2 ./gradlew publishToMavenLocal --stacktrace'
+#   - git stash
+#   - python ./prepare_yarn 1.13.2
+#   - 'MC_VERSION=1.13.2 ./gradlew publishToMavenLocal --stacktrace'
 #     - run: mvn help:evaluate -Dexpression=settings.localRepository
       - run: ls -R /home/runner/.m2/repository
