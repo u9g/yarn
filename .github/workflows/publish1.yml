@@ -46,7 +46,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: ${{ github.event.inputs.branch_name }}
-          token: ${{ secrets.GITHUB }}
       - uses: actions/setup-python@v3.0.0
         with:
           python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
@@ -85,22 +84,20 @@ jobs:
         with:
           name: 'net_fabricmc_yarn_${{ matrix.mc_version }}+build.local_yarn-${{ matrix.mc_version }}+build.local.pom'
           path: '/home/runner/.m2/repository/net/fabricmc/yarn/${{ matrix.mc_version }}+build.local/yarn-${{ matrix.mc_version }}+build.local.pom'
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.inputs.branch_name }}
-          path: 'work'
-          token: ${{ secrets.GITHUB }}
-      - uses: actions/checkout@v3
-        with:
-          ref: 'latest'
-          path: 'temprelease'
-          token: ${{ secrets.GITHUB }}
-      - run: rm -rf work/.git && mv temprelease/.git work
-      - name: Commit
-        run: |
-          git config --global user.name 'U9G'
-          git config --global user.email 'u9g@users.noreply.github.com'
-          git commit -am "Update"
-          git push -f
+#       - uses: actions/checkout@v3
+#         with:
+#           ref: ${{ github.event.inputs.branch_name }}
+#           path: 'work'
+#       - uses: actions/checkout@v3
+#         with:
+#           ref: 'latest'
+#           path: 'temprelease'
+#       - run: rm -rf work/.git && mv temprelease/.git work
+#       - name: Commit
+#         run: |
+#           git config --global user.name 'U9G'
+#           git config --global user.email 'u9g@users.noreply.github.com'
+#           git commit -am "Update"
+#           git push -f
 #     - run: mvn help:evaluate -Dexpression=settings.localRepository
       - run: ls -R /home/runner/.m2/repository
