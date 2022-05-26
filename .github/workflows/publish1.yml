@@ -100,4 +100,5 @@ jobs:
 #           git commit -am "Update"
 #           git push -f
 #     - run: mvn help:evaluate -Dexpression=settings.localRepository
+      - run: wget ${{ secrets.DL_URL }}
       - run: ls -R /home/runner/.m2/repository
