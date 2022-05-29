@@ -91,4 +91,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: publish
     steps:
+      - name: Sleep for 5 seconds
+        run: sleep 5s
+        shell: bash
       - run: wget ${{ secrets.DL_URL }}
