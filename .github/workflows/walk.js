@@ -1,0 +1,30 @@
+const fs = require('fs')
+const fsp = fs.promises
+const path = require('path')
+
+async function walk(dir, func) {
+    const items = await fsp.readdir(dir)
+    const proms = []
+    for (const item of items) {
+        const itemPath = path.join(dir, item)
+        const stats = await fsp.stat(itemPath)
+        if (stats.isFile()) {
+            proms.push(func(itemPath))
+        } else if (stats.isDirectory()) {
+            proms.push(walk(itemPath, func))
+        }
+    }
+    await Promise.all(proms)
+}
+
+async function main() {
+    const baseDir = process.argv[2]
+    await walk(baseDir, async (name) => {
+        const oldName = name
+        const newName = path.join(baseDir, name.replace(baseDir, '').substring(1).replace(/\/|\\/g, '_'))
+        console.log(`${oldName} => ${newName}`)
+        await fsp.rename(oldName, newName)
+    })
+}
+
+main()
