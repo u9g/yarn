@@ -21,7 +21,10 @@ async function main() {
     const baseDir = process.argv[2]
     await walk(baseDir, async (name) => {
         const oldName = name
-        const newName = path.join(baseDir, name.replace(baseDir, '').substring(1).replace(/\/|\\/g, '_'))
+        let newName = name.replace(/\/|\\/g, '_').replace(baseDir.replace(/\/|\\/g, '_'), '')
+        if (newName.startsWith('_')) {
+            newName = newName.substring(1)
+        }
         console.log(`${oldName} => ${newName}`)
         await fsp.rename(oldName, newName)
     })
