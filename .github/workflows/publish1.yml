@@ -40,36 +40,43 @@ jobs:
         with:
           distribution: 'temurin' # See 'Supported distributions' for available options
           java-version: '17'
-      - run: python ./prepare_yarn.py $MC_VERSION
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3.2.0
+      - run: python ./yarn.py $MC_VERSION publishToMavenLocal
       - run: ./gradlew publishToMavenLocal --stacktrace
+      - run: wget https://raw.githubusercontent.com/u9g/yarn/autopublish/.github/workflows/walk.js && node walk.js /home/runner/.m2/repository/
       - uses: actions/upload-artifact@v3.1.0
         with:
-          name: 'net_fabricmc_yarn_maven-metadata-local.xml'
-          path: '/home/runner/.m2/repository/net/fabricmc/yarn/maven-metadata-local.xml'
-      - uses: actions/upload-artifact@v3.1.0
-        with:
-          name: 'net_fabricmc_yarn_${{ matrix.mc_version }}+build.local_yarn-${{ matrix.mc_version }}+build.local-javadoc.jar'
-          path: '/home/runner/.m2/repository/net/fabricmc/yarn/${{ matrix.mc_version }}+build.local/yarn-${{ matrix.mc_version }}+build.local-javadoc.jar'
-      - uses: actions/upload-artifact@v3.1.0
-        with:
-          name: 'net_fabricmc_yarn_${{ matrix.mc_version }}+build.local_yarn-${{ matrix.mc_version }}+build.local-mergedv2.jar'
-          path: '/home/runner/.m2/repository/net/fabricmc/yarn/${{ matrix.mc_version }}+build.local/yarn-${{ matrix.mc_version }}+build.local-mergedv2.jar'
-      - uses: actions/upload-artifact@v3.1.0
-        with:
-          name: 'net_fabricmc_yarn_${{ matrix.mc_version }}+build.local_yarn-${{ matrix.mc_version }}+build.local-tiny.gz'
-          path: '/home/runner/.m2/repository/net/fabricmc/yarn/${{ matrix.mc_version }}+build.local/yarn-${{ matrix.mc_version }}+build.local-tiny.gz'
-      - uses: actions/upload-artifact@v3.1.0
-        with:
-          name: 'net_fabricmc_yarn_${{ matrix.mc_version }}+build.local_yarn-${{ matrix.mc_version }}+build.local-v2.jar'
-          path: '/home/runner/.m2/repository/net/fabricmc/yarn/${{ matrix.mc_version }}+build.local/yarn-${{ matrix.mc_version }}+build.local-v2.jar'
-      - uses: actions/upload-artifact@v3.1.0
-        with:
-          name: 'net_fabricmc_yarn_${{ matrix.mc_version }}+build.local_yarn-${{ matrix.mc_version }}+build.local.jar'
-          path: '/home/runner/.m2/repository/net/fabricmc/yarn/${{ matrix.mc_version }}+build.local/yarn-${{ matrix.mc_version }}+build.local.jar'
-      - uses: actions/upload-artifact@v3.1.0
-        with:
-          name: 'net_fabricmc_yarn_${{ matrix.mc_version }}+build.local_yarn-${{ matrix.mc_version }}+build.local.pom'
-          path: '/home/runner/.m2/repository/net/fabricmc/yarn/${{ matrix.mc_version }}+build.local/yarn-${{ matrix.mc_version }}+build.local.pom'
+          name: 'artifacts'
+          path: '/home/runner/.m2/repository/'
+#       - uses: actions/upload-artifact@v3.1.0
+#         with:
+#           name: 'net_fabricmc_yarn_maven-metadata-local.xml'
+#           path: '/home/runner/.m2/repository/net/fabricmc/yarn/maven-metadata-local.xml'
+#       - uses: actions/upload-artifact@v3.1.0
+#         with:
+#           name: 'net_fabricmc_yarn_${{ matrix.mc_version }}+build.local_yarn-${{ matrix.mc_version }}+build.local-javadoc.jar'
+#           path: '/home/runner/.m2/repository/net/fabricmc/yarn/${{ matrix.mc_version }}+build.local/yarn-${{ matrix.mc_version }}+build.local-javadoc.jar'
+#       - uses: actions/upload-artifact@v3.1.0
+#         with:
+#           name: 'net_fabricmc_yarn_${{ matrix.mc_version }}+build.local_yarn-${{ matrix.mc_version }}+build.local-mergedv2.jar'
+#           path: '/home/runner/.m2/repository/net/fabricmc/yarn/${{ matrix.mc_version }}+build.local/yarn-${{ matrix.mc_version }}+build.local-mergedv2.jar'
+#       - uses: actions/upload-artifact@v3.1.0
+#         with:
+#           name: 'net_fabricmc_yarn_${{ matrix.mc_version }}+build.local_yarn-${{ matrix.mc_version }}+build.local-tiny.gz'
+#           path: '/home/runner/.m2/repository/net/fabricmc/yarn/${{ matrix.mc_version }}+build.local/yarn-${{ matrix.mc_version }}+build.local-tiny.gz'
+#       - uses: actions/upload-artifact@v3.1.0
+#         with:
+#           name: 'net_fabricmc_yarn_${{ matrix.mc_version }}+build.local_yarn-${{ matrix.mc_version }}+build.local-v2.jar'
+#           path: '/home/runner/.m2/repository/net/fabricmc/yarn/${{ matrix.mc_version }}+build.local/yarn-${{ matrix.mc_version }}+build.local-v2.jar'
+#       - uses: actions/upload-artifact@v3.1.0
+#         with:
+#           name: 'net_fabricmc_yarn_${{ matrix.mc_version }}+build.local_yarn-${{ matrix.mc_version }}+build.local.jar'
+#           path: '/home/runner/.m2/repository/net/fabricmc/yarn/${{ matrix.mc_version }}+build.local/yarn-${{ matrix.mc_version }}+build.local.jar'
+#       - uses: actions/upload-artifact@v3.1.0
+#         with:
+#           name: 'net_fabricmc_yarn_${{ matrix.mc_version }}+build.local_yarn-${{ matrix.mc_version }}+build.local.pom'
+#           path: '/home/runner/.m2/repository/net/fabricmc/yarn/${{ matrix.mc_version }}+build.local/yarn-${{ matrix.mc_version }}+build.local.pom'
 #       - uses: actions/checkout@v3
 #         with:
 #           ref: ${{ github.event.inputs.branch_name }}
