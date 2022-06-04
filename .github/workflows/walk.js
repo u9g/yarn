@@ -19,9 +19,13 @@ async function walk(dir, func) {
 
 async function main() {
     const baseDir = process.argv[2]
+    if (baseDir.includes('.')) console.log('YOUR BASE DIR HAS A .')
     await walk(baseDir, async (name) => {
         const oldName = name
-        let newName = name.replace(/\/|\\/g, '_').replace(baseDir.replace(/\/|\\/g, '_'), '')
+        let newName = name.replace(/\/|\\/g, '_')
+        if (baseDir !== '.') {
+            newName = newName.replace(baseDir.replace(/\/|\\/g, '_'), '')
+        }
         if (newName.startsWith('_')) {
             newName = newName.substring(1)
         }
