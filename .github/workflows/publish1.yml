@@ -43,7 +43,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v3.2.0
       - run: python ./yarn.py $MC_VERSION publishToMavenLocal
-      - run: cd /home/runner/.m2/repository/ && wget https://raw.githubusercontent.com/u9g/yarn/autopublish/.github/workflows/walk.js && node walk.js . && rm walk.js
+      - run: cd /home/runner/.m2/repository/ && wget https://raw.githubusercontent.com/u9g/yarn/autopublish/.github/workflows/walk.js && node walk.js . && rm walkjs
       - uses: actions/upload-artifact@v3.1.0
         with:
           name: 'artifacts'
